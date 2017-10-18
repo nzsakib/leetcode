@@ -5,29 +5,22 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        flag = 0 # indicate negative number 
+        # Negative number is not palindrome
         if x < 0:
         	return False
-        	flag = 1
-        	x = x * -1
 
         z = x
         rev = 0
-        # print(z)
+        
         prev = rev
         while ( z != 0 ):
         	current = z % 10
-        	# print(z)
         	rev = rev * 10 + current
-        	if (rev - current) / 10 != prev:
+        	if (rev - current) / 10 != prev: # 32 bit integer overflow check
         		return False 
         	prev = rev
         	z = int(z / 10)
 
-        if flag == 1:
-        	rev = -rev
-        	x = -x
-        # print(x)
         if x == rev:
         	return True 
         else:
