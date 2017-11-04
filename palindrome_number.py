@@ -1,4 +1,4 @@
-
+# Added by branch 2
 class Solution(object):
     def isPalindrome(self, x):
         """
@@ -11,18 +11,18 @@ class Solution(object):
 
         z = x
         rev = 0
-        
+
         prev = rev
         while ( z != 0 ):
         	current = z % 10
         	rev = rev * 10 + current
         	if (rev - current) / 10 != prev: # 32 bit integer overflow check
-        		return False 
+        		return False
         	prev = rev
         	z = int(z / 10)
 
         if x == rev:
-        	return True 
+        	return True
         else:
         	return False
 
